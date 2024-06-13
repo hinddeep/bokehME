@@ -18,7 +18,7 @@ python bokehME.py <image_src.extension>
 
 ## Sample output
 
-![blurred_output](final_blurred_output.png)
+<img src="final_blurred_output.png" alt="Final Blurred Image" width="50%" height="50%">
 
 ## Key Challenges 
 - Powerful image editors such as those offered by Apple allow users to adjust the background blur of a portrait photo. However, sometimes we may find ourselves in a situation where we didn’t take a portrait photo but later wished to have the background blurred.
