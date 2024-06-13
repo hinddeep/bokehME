@@ -29,8 +29,8 @@ python bokehME.py <image_src.extension>
 For further reference please read my blog:
 A noob’s guide to adding stunning bokeh effects to the backgrounds of ‘non-portrait photos’
 <br>
-[bokehME]()
+[bokehME](https://medium.com/@hinddeep.purohit007/a-noobs-guide-to-adding-stunning-bokeh-effects-to-the-backgrounds-of-non-portrait-photos-41dee873a80a)
 
 ```
-
+https://medium.com/@hinddeep.purohit007/a-noobs-guide-to-adding-stunning-bokeh-effects-to-the-backgrounds-of-non-portrait-photos-41dee873a80a
 ```
