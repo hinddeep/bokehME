@@ -25,6 +25,10 @@ python bokehME.py <image_src.extension>
 - One may resort to popular image-processing libraries like OpenCV. However, standard filters such as Gaussian blur cannot distinguish between the subject and the background. They apply blur to the entire photo. 
 - Even if we were to find algorithms that achieved the goal of blurring the background, the quality of the resultant image could be questionable. It is a common observation that blurring an image messes up the edges of the subjects in the photo. Sometimes, the result looks so fake and artificial that it is better to leave the photo untouched! Edge refinement is a serious problem to be tackled.
 
+## Future Scope
+- Blurring the background is just one possibility. One could get creative and swap the background for another. 
+- The same concept can be applied to videoconferencing apps such as Zoom and Google Meet. Video is nothing but a succession of images. If one image can be transformed, by extension an entire video stream be transformed in real time. However, there is a trade-off between processing overhead and latency. Optimization techniques need to be developed before the idea can be applied to videos.
+
 ## Reference
 For further reference please read my blog:
 A noob’s guide to adding stunning bokeh effects to the backgrounds of ‘non-portrait photos’
