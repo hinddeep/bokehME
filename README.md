@@ -20,7 +20,7 @@ options:
 
 eg. Usage:
 python bokehME.py -b -i -f <image_src.extension>
-python bokehME.py -b -v -f <image_src.extension>
+python bokehME.py -b -v -f <video_src.extension>
 python bokehME.py -w
 ```
 
