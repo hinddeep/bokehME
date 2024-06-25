@@ -1,21 +1,22 @@
 # bokehME
 This code can be used to separate and process the subject and background of any image or video stream in realtime using multithreading. 
 
-## Quick Start (Local module)
+## Quick Start
 
 All you need to do is supply the path of the source image to be blurred as a command line argument.
 
 ```
-usage: bokehME.py [-h] [-f FILE] [-b] [-i] [-v]
+usage: bokehME.py [-h] [-f FILE] [-b] [-i] [-v] [-w]
 
-Apply filters to the subject and background of images and video streams in realtime
+Apply filters to the sunject and background of images and video streams in realtime
 
 options:
   -h, --help            show this help message and exit
-  -f FILE, --file FILE  Path of local image to be processed
+  -f FILE, --file FILE  Path of local image/video to be processed
   -b, --blur            Blur the source image/video
   -i, --image           Process and image
   -v, --video           Process a video
+  -w, --webcam          Open Webcam and apply filters
 
 eg. Usage:
 python bokehME.py -b -i -f <image_src.extension>
@@ -31,15 +32,11 @@ python bokehME.py -w
 - Superimpose/overlay the processed subject on the processed background
 - Save the combination as a new image or video / output the webcam stream
 
-## Sample output
-
-![blurred_output](final_blurred_output.png)
-
 ## Key Challenges 
 - Powerful editors such as those offered by Apple allow users to adjust the background blur of a portrait photo / video. However, sometimes we may find ourselves in a situation where we didn’t take a portrait photo / video but later wished to have the background blurred.
 - One may resort to popular image processing libraries like OpenCV. However, standard filters such as Gaussian blur cannot distinguish between the subject and the background. They apply blur to the entire photo / video frame by frame
 - No existing tool offers the flexibility to compose complex effect. This code allows you to not only build compound effects by combining multiple basic effects but also apply them to subject and background in parallel 
-- Finally, this code can be combined with the power of virtual webcams to add image/video editing capabilities to any application that does not natively support it - and for free! OBS virtual cam be used to pass the processed output of this python code to a virtual camera and can be used with apps like Powerpoint and WhatsApp 
+- Finally, applications such as Powerpoint and WhatsApp do not natively support editing of a live video stream from a webcam. OBS virtual cam be used to pass the processed output of this python code to a virtual camera and can be used with such apps to add support for realtime webcam feed processing - for free! 
 
 ## Reference
 For further reference please read my blog:
