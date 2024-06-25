@@ -9,9 +9,12 @@ def blur_background(path):
 
     # Apply Gaussian blur with a larger kernel and higher standard deviation
     blurred_image = cv2.GaussianBlur(image, (35, 35), 25)
+   
+    # Convert to grayscale
+    gray_image = cv2.cvtColor(blurred_image, cv2.COLOR_BGR2GRAY)
 
     # Save the blurred image
-    cv2.imwrite(output_path, blurred_image)
+    cv2.imwrite(output_path, gray_image)
 
     # Display the original and blurred images
     # cv2.imshow('Original Image', image)

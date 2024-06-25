@@ -54,9 +54,19 @@ def segment_image(path):
     # Apply the resized mask to the original image
     segmented_image = apply_mask(original_image, resized_mask)
 
+    image_warmer = segmented_image.copy().astype(np.float32)
+
+    # Increase red and yellow tones (R, G, B channels)
+    image_warmer[:, :, 2] *= 1.2  # Scale red channel
+    image_warmer[:, :, 1] *= 1.1  # Scale green channel slightly
+    image_warmer[:, :, 0] *= 0.9  # Scale blue channel slightly
+
+    # Ensure pixel values are within valid range [0, 255]
+    image_warmer = np.clip(image_warmer, 0, 255).astype(np.uint8)
+
     # Save the segmented image
     segmented_image_path = 'segmented_IMG_0034.png'
-    cv2.imwrite(segmented_image_path, cv2.cvtColor(segmented_image, cv2.COLOR_RGB2BGR))
+    cv2.imwrite(segmented_image_path, cv2.cvtColor(image_warmer, cv2.COLOR_RGB2BGR))
 
     # Display the original and segmented images
     # plt.figure(figsize=(10, 5))

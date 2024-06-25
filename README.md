@@ -1,33 +1,45 @@
 # bokehME
-People may have diverse motives to blur the background of an image. Somebody might want to look photogenic on Instagram, somebody might want to look professional on LinkedIn, and somebody might want to hide all personally identifiable information (PII) in the image. Irrespective of your use case, this codebase will help you blur the background of your image while leaving the subject intact even if it is not a portrait. 
+This code can be used to separate and process the subject and background of any image or video stream in realtime using multithreading. 
 
-## Quick Start
+## Quick Start (Local module)
 
 All you need to do is supply the path of the source image to be blurred as a command line argument.
 
 ```
-python bokehME.py <image_src.extension>
+usage: bokehME.py [-h] [-f FILE] [-b] [-i] [-v]
+
+Apply filters to the subject and background of images and video streams in realtime
+
+options:
+  -h, --help            show this help message and exit
+  -f FILE, --file FILE  Path of local image to be processed
+  -b, --blur            Blur the source image/video
+  -i, --image           Process and image
+  -v, --video           Process a video
+
+eg. Usage:
+python bokehME.py -b -i -f <image_src.extension>
+python bokehME.py -b -v -f <image_src.extension>
+python bokehME.py -w
 ```
 
 ## Algorithm
-- First, we isolate the subject of the supplied image using ML techniques and save it as a new image. We use PyTorch and DeepLab’s pre-trained models to segment the image. 
-- Next, the subject should be removed from the original image. This is step is exactly opposite of the first step. Again, this is powered by PyTorch and DeepLab’s pre-trained models.
-- Apply Gaussian blur filter to the background (original image without subject)
-- Superimpose/overlay the subject on the blurred background
-- Save the combination as a new image
+- Isolate the subject and background of the supplied image using ML techniques and save them. Use PyTorch and DeepLab’s pre-trained models to segment the image / video / webcam stream. 
+- Spawn 2 threads and process subject on one and background on the other 
+- Apply Gaussian blur filter or any other filter to the image / video / webcam stream
+- Wait until both the threads return
+- Superimpose/overlay the processed subject on the processed background
+- Save the combination as a new image or video / output the webcam stream
 
 ## Sample output
 
-<img src="images/compare_python.png" alt="Final Blurred Image" width="50%" height="50%">
+![blurred_output](final_blurred_output.png)
 
 ## Key Challenges 
-- Powerful image editors such as those offered by Apple allow users to adjust the background blur of a portrait photo. However, sometimes we may find ourselves in a situation where we didn’t take a portrait photo but later wished to have the background blurred.
-- One may resort to popular image-processing libraries like OpenCV. However, standard filters such as Gaussian blur cannot distinguish between the subject and the background. They apply blur to the entire photo. 
-- Even if we were to find algorithms that achieved the goal of blurring the background, the quality of the resultant image could be questionable. It is a common observation that blurring an image messes up the edges of the subjects in the photo. Sometimes, the result looks so fake and artificial that it is better to leave the photo untouched! Edge refinement is a serious problem to be tackled.
-
-## Future Scope
-- Blurring the background is just one possibility. One could get creative and swap the background for another. 
-- The same concept can be applied to videoconferencing apps such as Zoom and Google Meet. Video is nothing but a succession of images. If one image can be transformed, by extension an entire video stream be transformed in real time. However, there is a trade-off between processing overhead and latency. Optimization techniques need to be developed before the idea can be applied to videos.
+- Powerful editors such as those offered by Apple allow users to adjust the background blur of a portrait photo / video. However, sometimes we may find ourselves in a situation where we didn’t take a portrait photo / video but later wished to have the background blurred.
+- One may resort to popular image processing libraries like OpenCV. However, standard filters such as Gaussian blur cannot distinguish between the subject and the background. They apply blur to the entire photo / video frame by frame
+- No existing tool offers the flexibility to compose complex effect. This code allows you to not only build compound effects by combining multiple basic effects but also apply them to subject and background in parallel 
+- Finally, this code can be combined with the power of virtual webcams to add image/video editing capabilities to any application that does not natively support it - and for free! OBS virtual cam be used to pass the processed output of this python code to a virtual camera and can be used with apps like Powerpoint and WhatsApp 
 
 ## Reference
 For further reference please read my blog:
