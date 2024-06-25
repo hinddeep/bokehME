@@ -47,3 +47,8 @@ A noob’s guide to adding stunning bokeh effects to the backgrounds of ‘non-p
 ```
 https://medium.com/@hinddeep.purohit007/a-noobs-guide-to-adding-stunning-bokeh-effects-to-the-backgrounds-of-non-portrait-photos-41dee873a80a
 ```
+
+[AI, a friend or a foe?](https://medium.com/@hinddeep.purohit007/a-noobs-guide-to-adding-stunning-bokeh-effects-to-the-backgrounds-of-non-portrait-photos-41dee873a80a)
+```
+https://medium.com/@hinddeep.purohit007/ai-a-friend-or-a-foe-e7e555d2d61e 
+```
