@@ -14,7 +14,7 @@ options:
   -h, --help            show this help message and exit
   -f FILE, --file FILE  Path of local image/video to be processed
   -b, --blur            Blur the source image/video
-  -i, --image           Process and image
+  -i, --image           Process an image
   -v, --video           Process a video
   -w, --webcam          Open Webcam and apply filters
 
