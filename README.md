@@ -3,8 +3,6 @@ This code can be used to separate and process the subject and background of any 
 
 ## Quick Start
 
-All you need to do is supply the path of the source image to be blurred as a command line argument.
-
 ```
 usage: bokehME.py [-h] [-f FILE] [-b] [-i] [-v] [-w]
 
